@@ -7,8 +7,11 @@ const caesarModule = (function () {
   // you can add any code you want within this function scope
 
   function caesar(input, shift, encode = true) { 
-if (!encode) {
-  return caesar(input, -(shift) + 26);
+if (!encode) {return caesar(input, shift * -1)}
+
+if (shift < 0) {
+  
+  return caesar(input, shift + 26);
 }
 if (!shift || shift === 0 || shift < -25 || shift > 25)   {
       return false
